@@ -24,7 +24,7 @@ export function NewPredictionForm() {
           required
           rows={2}
           placeholder="Will I land a PM job in the next 6 months?"
-          className="w-full resize-none rounded-lg border border-[#ddd] px-3 py-2 text-sm"
+          className="w-full resize-none rounded-lg border border-[#ddd] bg-white px-3 py-2 text-sm text-[#1a1a1a]"
         />
       </div>
 
@@ -49,7 +49,7 @@ export function NewPredictionForm() {
         <select
           name="category"
           defaultValue="other"
-          className="w-full rounded-lg border border-[#ddd] px-3 py-2 text-sm"
+          className="w-full rounded-lg border border-[#ddd] bg-white px-3 py-2 text-sm text-[#1a1a1a]"
         >
           {CATEGORIES.map((key) => (
             <option key={key} value={key}>
@@ -66,7 +66,7 @@ export function NewPredictionForm() {
         <input
           type="date"
           name="targetDate"
-          className="w-full rounded-lg border border-[#ddd] px-3 py-2 text-sm"
+          className="w-full rounded-lg border border-[#ddd] bg-white px-3 py-2 text-sm text-[#1a1a1a]"
         />
       </div>
 

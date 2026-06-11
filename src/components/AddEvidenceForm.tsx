@@ -57,7 +57,7 @@ export function AddEvidenceForm({ predictionId }: { predictionId: string }) {
           required
           rows={2}
           placeholder="Got a second interview at a tech company"
-          className="w-full resize-none rounded-lg border border-[#ddd] px-3 py-2 text-sm"
+          className="w-full resize-none rounded-lg border border-[#ddd] bg-white px-3 py-2 text-sm text-[#1a1a1a]"
         />
       </div>
 
