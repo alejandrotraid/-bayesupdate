@@ -53,6 +53,24 @@ export function applyEvidence(
   }
 }
 
+/** Undo a previously applied piece of evidence, returning the prior Beta parameters. */
+export function reverseEvidence(
+  current: BetaParams,
+  direction: EvidenceDirection,
+  strength: EvidenceStrength
+): BetaParams {
+  const weight = STRENGTH_WEIGHT[strength];
+
+  switch (direction) {
+    case "favorable":
+      return { alpha: current.alpha - weight, beta: current.beta };
+    case "unfavorable":
+      return { alpha: current.alpha, beta: current.beta - weight };
+    case "neutral":
+      return current;
+  }
+}
+
 function clampProbability(value: number): number {
   return Math.min(100, Math.max(0, value));
 }

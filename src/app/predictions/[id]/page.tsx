@@ -6,6 +6,7 @@ import { Timeline } from "@/components/Timeline";
 import { EvidenceLog } from "@/components/EvidenceLog";
 import { SharePanel } from "@/components/SharePanel";
 import { ResolveSection } from "@/components/ResolveSection";
+import { EditPredictionForm } from "@/components/EditPredictionForm";
 import { getPredictionById } from "@/lib/data/predictions";
 import { betaToProbability } from "@/lib/bayes";
 import { formatPercent } from "@/lib/format";
@@ -37,6 +38,9 @@ export default async function PredictionDetailPage({
         </Link>
         <div className="mb-[10px] text-[15px] font-medium leading-snug text-[#1a1a1a]">
           {prediction.question}
+        </div>
+        <div className="mb-[10px]">
+          <EditPredictionForm prediction={prediction} />
         </div>
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-baseline gap-2">
