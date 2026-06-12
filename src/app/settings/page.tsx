@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { IconBulb, IconChevronRight } from "@tabler/icons-react";
 import { NavBar } from "@/components/NavBar";
 import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/app/actions";
@@ -21,6 +23,19 @@ export default async function SettingsPage() {
           </div>
           <div className="mt-2 text-sm text-[#1a1a1a]">{user?.email}</div>
         </div>
+
+        <Link
+          href="/learn"
+          className="flex items-center justify-between rounded-xl border border-[#eee] p-4"
+        >
+          <div className="flex items-center gap-2">
+            <IconBulb size={18} className="text-[#185FA5]" />
+            <div className="text-sm text-[#1a1a1a]">
+              What is Bayesian thinking?
+            </div>
+          </div>
+          <IconChevronRight size={16} className="text-[#888]" />
+        </Link>
 
         <form action={signOut}>
           <button
