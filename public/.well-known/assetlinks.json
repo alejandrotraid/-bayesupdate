@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "app.vercel.bayesupdate.twa",
+        "sha256_cert_fingerprints": ["2C:B9:42:DD:4E:6B:85:BB:3A:4E:F4:B3:43:65:BC:86:C5:69:AB:18:C4:67:EB:FE:50:67:7D:F9:7E:11:B0:38"]
+      }
+    }]
