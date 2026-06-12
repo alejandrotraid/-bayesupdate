@@ -13,7 +13,7 @@ export function EvidenceLog({
 }) {
   return (
     <div className="p-4">
-      <div className="mb-[10px] text-[11px] font-medium uppercase tracking-wide text-[#888]">
+      <div className="mb-[10px] text-[11px] font-medium uppercase tracking-wide text-[var(--text-muted)]">
         Evidence log
       </div>
 

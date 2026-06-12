@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#185FA5",
+  themeColor: "var(--accent)",
 };
 
 export default function RootLayout({
@@ -36,8 +36,8 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#f3f2ed] text-[#1a1a1a]">
-        <div className="mx-auto flex w-full max-w-[480px] flex-1 flex-col overflow-hidden bg-white shadow-sm sm:my-6 sm:rounded-2xl sm:border sm:border-[#e0dfd8]">
+      <body className="min-h-full flex flex-col bg-[var(--bg-page)] text-[var(--text-primary)]">
+        <div className="mx-auto flex w-full max-w-[480px] flex-1 flex-col overflow-hidden bg-[var(--bg-surface)] shadow-sm sm:my-6 sm:rounded-2xl sm:border sm:border-[var(--border-strong)]">
           {children}
         </div>
       </body>

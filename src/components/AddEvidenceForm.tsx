@@ -30,7 +30,7 @@ export function AddEvidenceForm({ predictionId }: { predictionId: string }) {
     return (
       <button
         onClick={() => setOpen(true)}
-        className="flex w-full items-center justify-center gap-[6px] rounded-lg border border-dashed border-[#ccc] p-[10px] text-sm text-[#888] hover:bg-[#f8f7f2]"
+        className="flex w-full items-center justify-center gap-[6px] rounded-lg border border-dashed border-[var(--border-muted)] p-[10px] text-sm text-[var(--text-muted)] hover:bg-[var(--bg-subtle)]"
       >
         <IconPlus size={16} />
         Log new evidence
@@ -44,12 +44,12 @@ export function AddEvidenceForm({ predictionId }: { predictionId: string }) {
         await action(formData);
         setOpen(false);
       }}
-      className="flex flex-col gap-3 rounded-xl border border-[#eee] p-3"
+      className="flex flex-col gap-3 rounded-xl border border-[var(--border)] p-3"
     >
       <input type="hidden" name="predictionId" value={predictionId} />
 
       <div>
-        <label className="mb-1 block text-xs text-[#888]">
+        <label className="mb-1 block text-xs text-[var(--text-muted)]">
           What happened?
         </label>
         <textarea
@@ -57,17 +57,17 @@ export function AddEvidenceForm({ predictionId }: { predictionId: string }) {
           required
           rows={2}
           placeholder="Got a second interview at a tech company"
-          className="w-full resize-none rounded-lg border border-[#ddd] bg-white px-3 py-2 text-sm text-[#1a1a1a]"
+          className="w-full resize-none rounded-lg border border-[var(--border-strong)] bg-[var(--bg-surface)] px-3 py-2 text-sm text-[var(--text-primary)]"
         />
       </div>
 
       <div>
-        <label className="mb-1 block text-xs text-[#888]">Direction</label>
+        <label className="mb-1 block text-xs text-[var(--text-muted)]">Direction</label>
         <div className="flex gap-2">
           {DIRECTIONS.map(({ value, label }) => (
             <label
               key={value}
-              className="flex flex-1 items-center justify-center gap-1 rounded-md border border-[#ddd] p-[6px] text-[12px] text-[#555] has-[:checked]:border-[#b3cfe8] has-[:checked]:bg-[#E6F1FB] has-[:checked]:text-[#185FA5]"
+              className="flex flex-1 items-center justify-center gap-1 rounded-md border border-[var(--border-strong)] p-[6px] text-[12px] text-[var(--text-secondary)] has-[:checked]:border-[var(--accent-border)] has-[:checked]:bg-[var(--accent-soft)] has-[:checked]:text-[var(--accent)]"
             >
               <input
                 type="radio"
@@ -83,12 +83,12 @@ export function AddEvidenceForm({ predictionId }: { predictionId: string }) {
       </div>
 
       <div>
-        <label className="mb-1 block text-xs text-[#888]">Strength</label>
+        <label className="mb-1 block text-xs text-[var(--text-muted)]">Strength</label>
         <div className="flex gap-2">
           {STRENGTHS.map(({ value, label }) => (
             <label
               key={value}
-              className="flex flex-1 items-center justify-center gap-1 rounded-md border border-[#ddd] p-[6px] text-[12px] text-[#555] has-[:checked]:border-[#b3cfe8] has-[:checked]:bg-[#E6F1FB] has-[:checked]:text-[#185FA5]"
+              className="flex flex-1 items-center justify-center gap-1 rounded-md border border-[var(--border-strong)] p-[6px] text-[12px] text-[var(--text-secondary)] has-[:checked]:border-[var(--accent-border)] has-[:checked]:bg-[var(--accent-soft)] has-[:checked]:text-[var(--accent)]"
             >
               <input
                 type="radio"
@@ -104,21 +104,21 @@ export function AddEvidenceForm({ predictionId }: { predictionId: string }) {
       </div>
 
       {state.error && (
-        <div className="text-xs text-[#993C1D]">{state.error}</div>
+        <div className="text-xs text-[var(--negative-text)]">{state.error}</div>
       )}
 
       <div className="flex gap-2">
         <button
           type="button"
           onClick={() => setOpen(false)}
-          className="flex-1 rounded-lg border border-[#ddd] p-[10px] text-sm text-[#666]"
+          className="flex-1 rounded-lg border border-[var(--border-strong)] p-[10px] text-sm text-[var(--text-secondary)]"
         >
           Cancel
         </button>
         <button
           type="submit"
           disabled={pending}
-          className="flex-1 rounded-lg bg-[#185FA5] p-[10px] text-sm font-medium text-white disabled:opacity-60"
+          className="flex-1 rounded-lg bg-[var(--accent)] p-[10px] text-sm font-medium text-[var(--accent-contrast)] disabled:opacity-60"
         >
           {pending ? "Saving..." : "Log evidence"}
         </button>

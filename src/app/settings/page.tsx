@@ -12,35 +12,35 @@ export default async function SettingsPage() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <div className="border-b border-[#eee] px-4 pb-[10px] pt-[14px]">
-        <div className="text-lg font-medium text-[#1a1a1a]">Settings</div>
+      <div className="border-b border-[var(--border)] px-4 pb-[10px] pt-[14px]">
+        <div className="text-lg font-medium text-[var(--text-primary)]">Settings</div>
       </div>
 
       <div className="flex flex-1 flex-col gap-4 p-4">
-        <div className="rounded-xl border border-[#eee] p-4">
-          <div className="text-[11px] font-medium uppercase tracking-wide text-[#888]">
+        <div className="rounded-xl border border-[var(--border)] p-4">
+          <div className="text-[11px] font-medium uppercase tracking-wide text-[var(--text-muted)]">
             Account
           </div>
-          <div className="mt-2 text-sm text-[#1a1a1a]">{user?.email}</div>
+          <div className="mt-2 text-sm text-[var(--text-primary)]">{user?.email}</div>
         </div>
 
         <Link
           href="/learn"
-          className="flex items-center justify-between rounded-xl border border-[#eee] p-4"
+          className="flex items-center justify-between rounded-xl border border-[var(--border)] p-4"
         >
           <div className="flex items-center gap-2">
-            <IconBulb size={18} className="text-[#185FA5]" />
-            <div className="text-sm text-[#1a1a1a]">
+            <IconBulb size={18} className="text-[var(--accent)]" />
+            <div className="text-sm text-[var(--text-primary)]">
               What is Bayesian thinking?
             </div>
           </div>
-          <IconChevronRight size={16} className="text-[#888]" />
+          <IconChevronRight size={16} className="text-[var(--text-muted)]" />
         </Link>
 
         <form action={signOut}>
           <button
             type="submit"
-            className="w-full rounded-lg border border-[#ddd] p-[10px] text-sm text-[#993C1D] hover:bg-[#FAECE7]"
+            className="w-full rounded-lg border border-[var(--border-strong)] p-[10px] text-sm text-[var(--negative-text)] hover:bg-[var(--negative-soft)]"
           >
             Sign out
           </button>

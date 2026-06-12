@@ -5,25 +5,25 @@ import { NavBar } from "@/components/NavBar";
 export default function LearnPage() {
   return (
     <div className="flex flex-1 flex-col">
-      <div className="border-b border-[#eee] px-4 pb-[10px] pt-[14px]">
+      <div className="border-b border-[var(--border)] px-4 pb-[10px] pt-[14px]">
         <Link
           href="/settings"
-          className="mb-[10px] flex items-center gap-1 text-[13px] text-[#888]"
+          className="mb-[10px] flex items-center gap-1 text-[13px] text-[var(--text-muted)]"
         >
           <IconArrowLeft size={14} />
           Back
         </Link>
-        <div className="text-lg font-medium text-[#1a1a1a]">
+        <div className="text-lg font-medium text-[var(--text-primary)]">
           What is Bayesian thinking?
         </div>
-        <div className="mt-1 text-[13px] text-[#888]">
+        <div className="mt-1 text-[13px] text-[var(--text-muted)]">
           The idea behind this app, explained simply.
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col gap-5 p-4 text-sm leading-relaxed text-[#1a1a1a]">
+      <div className="flex flex-1 flex-col gap-5 p-4 text-sm leading-relaxed text-[var(--text-primary)]">
         <section>
-          <h2 className="mb-2 text-[11px] font-medium uppercase tracking-wide text-[#888]">
+          <h2 className="mb-2 text-[11px] font-medium uppercase tracking-wide text-[var(--text-muted)]">
             The big idea
           </h2>
           <p>
@@ -41,38 +41,38 @@ export default function LearnPage() {
         </section>
 
         <section>
-          <h2 className="mb-2 text-[11px] font-medium uppercase tracking-wide text-[#888]">
+          <h2 className="mb-2 text-[11px] font-medium uppercase tracking-wide text-[var(--text-muted)]">
             The formula
           </h2>
           <p>At its heart, Bayes&apos; theorem looks like this:</p>
-          <div className="my-3 rounded-xl border border-[#eee] bg-[#f8f7f2] p-4 text-center font-mono text-[15px] text-[#185FA5]">
+          <div className="my-3 rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-4 text-center font-mono text-[15px] text-[var(--accent)]">
             P(H | E) = P(E | H) · P(H) / P(E)
           </div>
           <p>In plain language:</p>
           <ul className="mt-2 flex flex-col gap-2">
             <li className="flex gap-2">
-              <span className="font-mono text-[#185FA5]">P(H)</span>
+              <span className="font-mono text-[var(--accent)]">P(H)</span>
               <span>
                 — your <strong>prior</strong>: how likely you thought the
                 belief (H) was <em>before</em> the new evidence.
               </span>
             </li>
             <li className="flex gap-2">
-              <span className="font-mono text-[#185FA5]">P(E | H)</span>
+              <span className="font-mono text-[var(--accent)]">P(E | H)</span>
               <span>
                 — how likely this evidence (E) would be <em>if</em> the
                 belief were true.
               </span>
             </li>
             <li className="flex gap-2">
-              <span className="font-mono text-[#185FA5]">P(E)</span>
+              <span className="font-mono text-[var(--accent)]">P(E)</span>
               <span>
                 — how likely the evidence is overall, across every way it
                 could happen.
               </span>
             </li>
             <li className="flex gap-2">
-              <span className="font-mono text-[#185FA5]">P(H | E)</span>
+              <span className="font-mono text-[var(--accent)]">P(H | E)</span>
               <span>
                 — your <strong>posterior</strong>: your updated belief
                 <em>after</em> seeing the evidence.
@@ -83,13 +83,13 @@ export default function LearnPage() {
             You don&apos;t need to calculate this by hand — the point is the
             shape of the idea:
           </p>
-          <div className="my-3 rounded-xl border border-[#eee] bg-[#f8f7f2] p-4 text-center font-mono text-[14px] text-[#185FA5]">
+          <div className="my-3 rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-4 text-center font-mono text-[14px] text-[var(--accent)]">
             new belief = old belief × how well the evidence fits
           </div>
         </section>
 
         <section>
-          <h2 className="mb-2 text-[11px] font-medium uppercase tracking-wide text-[#888]">
+          <h2 className="mb-2 text-[11px] font-medium uppercase tracking-wide text-[var(--text-muted)]">
             An everyday example
           </h2>
           <p>
@@ -113,7 +113,7 @@ export default function LearnPage() {
         </section>
 
         <section>
-          <h2 className="mb-2 text-[11px] font-medium uppercase tracking-wide text-[#888]">
+          <h2 className="mb-2 text-[11px] font-medium uppercase tracking-wide text-[var(--text-muted)]">
             How BayesUpdate applies this
           </h2>
           <p>
@@ -129,7 +129,7 @@ export default function LearnPage() {
           </p>
           <ul className="mt-2 flex flex-col gap-2">
             <li className="flex gap-2">
-              <span className="font-mono text-[#185FA5]">Direction</span>
+              <span className="font-mono text-[var(--accent)]">Direction</span>
               <span>
                 — does this evidence make the outcome more likely
                 (favorable), less likely (unfavorable), or doesn&apos;t move
@@ -137,7 +137,7 @@ export default function LearnPage() {
               </span>
             </li>
             <li className="flex gap-2">
-              <span className="font-mono text-[#185FA5]">Strength</span>
+              <span className="font-mono text-[var(--accent)]">Strength</span>
               <span>
                 — how big a deal is this evidence: weak, moderate, or strong?
               </span>
@@ -154,7 +154,7 @@ export default function LearnPage() {
         </section>
 
         <section>
-          <h2 className="mb-2 text-[11px] font-medium uppercase tracking-wide text-[#888]">
+          <h2 className="mb-2 text-[11px] font-medium uppercase tracking-wide text-[var(--text-muted)]">
             Why this is useful day to day
           </h2>
           <ul className="flex flex-col gap-2">
@@ -182,7 +182,7 @@ export default function LearnPage() {
         </section>
 
         <section>
-          <h2 className="mb-2 text-[11px] font-medium uppercase tracking-wide text-[#888]">
+          <h2 className="mb-2 text-[11px] font-medium uppercase tracking-wide text-[var(--text-muted)]">
             In short
           </h2>
           <p>

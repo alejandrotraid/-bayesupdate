@@ -28,15 +28,15 @@ export default async function PredictionDetailPage({
 
   return (
     <div className="flex flex-1 flex-col">
-      <div className="border-b border-[#eee] p-4">
+      <div className="border-b border-[var(--border)] p-4">
         <Link
           href="/"
-          className="mb-[10px] flex items-center gap-1 text-[13px] text-[#888]"
+          className="mb-[10px] flex items-center gap-1 text-[13px] text-[var(--text-muted)]"
         >
           <IconArrowLeft size={14} />
           Back
         </Link>
-        <div className="mb-[10px] text-[15px] font-medium leading-snug text-[#1a1a1a]">
+        <div className="mb-[10px] text-[15px] font-medium leading-snug text-[var(--text-primary)]">
           {prediction.question}
         </div>
         <div className="mb-[10px]">
@@ -44,10 +44,10 @@ export default async function PredictionDetailPage({
         </div>
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-baseline gap-2">
-            <div className="text-4xl font-medium text-[#185FA5]">
+            <div className="text-4xl font-medium text-[var(--accent)]">
               {formatPercent(probability)}
             </div>
-            <div className="text-[13px] text-[#888]">current probability</div>
+            <div className="text-[13px] text-[var(--text-muted)]">current probability</div>
           </div>
           <div className="flex-shrink-0">
             <SharePanel shareUrl={`bayesupdate.app/p/${prediction.id}`} />
@@ -55,8 +55,8 @@ export default async function PredictionDetailPage({
         </div>
       </div>
 
-      <div className="border-b border-[#eee] p-4">
-        <div className="mb-[10px] text-[11px] font-medium uppercase tracking-wide text-[#888]">
+      <div className="border-b border-[var(--border)] p-4">
+        <div className="mb-[10px] text-[11px] font-medium uppercase tracking-wide text-[var(--text-muted)]">
           Probability over time
         </div>
         <Timeline points={probabilityHistory} />

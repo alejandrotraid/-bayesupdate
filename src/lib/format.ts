@@ -8,15 +8,15 @@ export function getBadgeTier(probability: number): BadgeTier {
 }
 
 export const BADGE_STYLES: Record<BadgeTier, string> = {
-  default: "text-[#185FA5] bg-[#E6F1FB]",
-  high: "text-[#085041] bg-[#E1F5EE]",
-  mid: "text-[#993C1D] bg-[#FAECE7]",
+  default: "text-[var(--accent)] bg-[var(--accent-soft)]",
+  high: "text-[var(--positive-text)] bg-[var(--positive-soft)]",
+  mid: "text-[var(--negative-text)] bg-[var(--negative-soft)]",
 };
 
 export const BAR_COLORS: Record<BadgeTier, string> = {
-  default: "#378ADD",
-  high: "#1D9E75",
-  mid: "#D85A30",
+  default: "var(--accent-bar)",
+  high: "var(--positive)",
+  mid: "var(--negative)",
 };
 
 export const CATEGORY_LABELS: Record<string, string> = {

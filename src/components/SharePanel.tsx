@@ -20,22 +20,22 @@ export function SharePanel({ shareUrl }: { shareUrl: string }) {
     <div>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-[5px] rounded-lg border border-[#ddd] bg-white px-3 py-[6px] text-xs text-[#444] hover:bg-[#f3f2ed]"
+        className="flex items-center gap-[5px] rounded-lg border border-[var(--border-strong)] bg-[var(--bg-surface)] px-3 py-[6px] text-xs text-[var(--text-secondary)] hover:bg-[var(--bg-page)]"
       >
         <IconShare size={15} />
         Share
       </button>
 
       {open && (
-        <div className="mt-3 rounded-[10px] border border-[#e8e7e0] bg-[#f8f7f2] p-3">
-          <div className="mb-2 text-xs font-medium text-[#444]">
+        <div className="mt-3 rounded-[10px] border border-[var(--border)] bg-[var(--bg-subtle)] p-3">
+          <div className="mb-2 text-xs font-medium text-[var(--text-secondary)]">
             Share this prediction
           </div>
           <div className="flex gap-[6px]">
             <input
               readOnly
               value={shareUrl}
-              className="flex-1 rounded-md border border-[#ddd] bg-white px-[10px] py-[6px] text-xs text-[#444]"
+              className="flex-1 rounded-md border border-[var(--border-strong)] bg-[var(--bg-surface)] px-[10px] py-[6px] text-xs text-[var(--text-secondary)]"
             />
             <button
               onClick={() => {
@@ -43,7 +43,7 @@ export function SharePanel({ shareUrl }: { shareUrl: string }) {
                 setCopied(true);
                 setTimeout(() => setCopied(false), 1500);
               }}
-              className="whitespace-nowrap rounded-md border border-[#ddd] bg-white px-[10px] py-[6px] text-xs text-[#444] hover:bg-[#eee]"
+              className="whitespace-nowrap rounded-md border border-[var(--border-strong)] bg-[var(--bg-surface)] px-[10px] py-[6px] text-xs text-[var(--text-secondary)] hover:bg-[var(--border)]"
             >
               {copied ? "Copied!" : "Copy link"}
             </button>
@@ -55,8 +55,8 @@ export function SharePanel({ shareUrl }: { shareUrl: string }) {
                 onClick={() => setOption(id)}
                 className={`flex flex-1 items-center justify-center gap-1 rounded-md border p-[5px] text-[11px] ${
                   option === id
-                    ? "border-[#b3cfe8] bg-[#E6F1FB] text-[#185FA5]"
-                    : "border-[#ddd] bg-white text-[#555]"
+                    ? "border-[var(--accent-border)] bg-[var(--accent-soft)] text-[var(--accent)]"
+                    : "border-[var(--border-strong)] bg-[var(--bg-surface)] text-[var(--text-secondary)]"
                 }`}
               >
                 <Icon size={13} />

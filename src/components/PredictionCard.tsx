@@ -21,10 +21,10 @@ export function PredictionCard({ item }: { item: PredictionWithEvidence }) {
   return (
     <Link
       href={`/predictions/${prediction.id}`}
-      className="block rounded-xl border border-[#eee] bg-white p-4 transition-colors hover:border-[#ccc]"
+      className="block rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-4 transition-colors hover:border-[var(--border-muted)]"
     >
       <div className="flex items-start justify-between gap-2">
-        <div className="flex-1 text-sm font-medium leading-snug text-[#1a1a1a]">
+        <div className="flex-1 text-sm font-medium leading-snug text-[var(--text-primary)]">
           {prediction.question}
         </div>
         <div
@@ -38,7 +38,7 @@ export function PredictionCard({ item }: { item: PredictionWithEvidence }) {
         {trend !== 0 && (
           <div
             className={`flex items-center gap-[3px] text-xs ${
-              trend > 0 ? "text-[#0F6E56]" : "text-[#993C1D]"
+              trend > 0 ? "text-[var(--positive-text)]" : "text-[var(--negative-text)]"
             }`}
           >
             {trend > 0 ? (
@@ -49,12 +49,12 @@ export function PredictionCard({ item }: { item: PredictionWithEvidence }) {
             {formatSignedPercent(trend)} this week
           </div>
         )}
-        <div className="rounded-full bg-[#f3f2ed] px-2 py-[2px] text-[11px] text-[#888]">
+        <div className="rounded-full bg-[var(--bg-page)] px-2 py-[2px] text-[11px] text-[var(--text-muted)]">
           {CATEGORY_LABELS[prediction.category]}
         </div>
       </div>
 
-      <div className="mt-2 h-1 overflow-hidden rounded-full bg-[#f0efea]">
+      <div className="mt-2 h-1 overflow-hidden rounded-full bg-[var(--bg-track)]">
         <div
           className="h-full rounded-full"
           style={{

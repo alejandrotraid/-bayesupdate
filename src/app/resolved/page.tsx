@@ -7,16 +7,16 @@ export default async function ResolvedPage() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <div className="border-b border-[#eee] px-4 pb-[10px] pt-[14px]">
-        <div className="text-lg font-medium text-[#1a1a1a]">Resolved</div>
-        <div className="mt-[1px] text-xs text-[#888]">
+      <div className="border-b border-[var(--border)] px-4 pb-[10px] pt-[14px]">
+        <div className="text-lg font-medium text-[var(--text-primary)]">Resolved</div>
+        <div className="mt-[1px] text-xs text-[var(--text-muted)]">
           {predictions.length} resolved predictions
         </div>
       </div>
 
       <div className="flex flex-col gap-2 p-3">
         {predictions.length === 0 ? (
-          <div className="p-4 text-center text-sm text-[#888]">
+          <div className="p-4 text-center text-sm text-[var(--text-muted)]">
             No resolved predictions yet.
           </div>
         ) : (

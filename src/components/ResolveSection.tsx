@@ -9,8 +9,8 @@ import type { Prediction } from "@/types";
 export function ResolveSection({ prediction }: { prediction: Prediction }) {
   if (prediction.status === "active") {
     return (
-      <div className="border-b border-[#eee] p-4">
-        <div className="mb-[10px] text-[11px] font-medium uppercase tracking-wide text-[#888]">
+      <div className="border-b border-[var(--border)] p-4">
+        <div className="mb-[10px] text-[11px] font-medium uppercase tracking-wide text-[var(--text-muted)]">
           Resolve this prediction
         </div>
         <div className="flex gap-2">
@@ -19,7 +19,7 @@ export function ResolveSection({ prediction }: { prediction: Prediction }) {
             <input type="hidden" name="outcome" value="resolved_true" />
             <button
               type="submit"
-              className="flex w-full items-center justify-center gap-1 rounded-lg border border-[#ddd] py-2 text-sm text-[#0F6E56] hover:bg-[#E1F5EE]"
+              className="flex w-full items-center justify-center gap-1 rounded-lg border border-[var(--border-strong)] py-2 text-sm text-[var(--positive-text)] hover:bg-[var(--positive-soft)]"
             >
               <IconCheck size={16} />
               Happened
@@ -30,7 +30,7 @@ export function ResolveSection({ prediction }: { prediction: Prediction }) {
             <input type="hidden" name="outcome" value="resolved_false" />
             <button
               type="submit"
-              className="flex w-full items-center justify-center gap-1 rounded-lg border border-[#ddd] py-2 text-sm text-[#993C1D] hover:bg-[#FAECE7]"
+              className="flex w-full items-center justify-center gap-1 rounded-lg border border-[var(--border-strong)] py-2 text-sm text-[var(--negative-text)] hover:bg-[var(--negative-soft)]"
             >
               <IconX size={16} />
               Didn&apos;t happen
@@ -45,12 +45,12 @@ export function ResolveSection({ prediction }: { prediction: Prediction }) {
     prediction.status === "resolved_true" ? "Happened" : "Didn't happen";
 
   return (
-    <div className="border-b border-[#eee] p-4">
+    <div className="border-b border-[var(--border)] p-4">
       <div className="flex items-center justify-between">
-        <div className="text-sm text-[#1a1a1a]">
+        <div className="text-sm text-[var(--text-primary)]">
           Resolved: <span className="font-medium">{outcomeLabel}</span>
           {prediction.resolvedAt && (
-            <span className="text-[#888]">
+            <span className="text-[var(--text-muted)]">
               {" "}
               on {formatDate(prediction.resolvedAt)}
             </span>
@@ -60,7 +60,7 @@ export function ResolveSection({ prediction }: { prediction: Prediction }) {
           <input type="hidden" name="predictionId" value={prediction.id} />
           <button
             type="submit"
-            className="flex items-center gap-1 text-[13px] text-[#888] hover:text-[#1a1a1a]"
+            className="flex items-center gap-1 text-[13px] text-[var(--text-muted)] hover:text-[var(--text-primary)]"
           >
             <IconRotateClockwise size={14} />
             Reopen

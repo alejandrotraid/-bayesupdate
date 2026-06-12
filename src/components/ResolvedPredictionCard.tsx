@@ -17,13 +17,13 @@ export function ResolvedPredictionCard({
   return (
     <Link
       href={`/predictions/${prediction.id}`}
-      className="block rounded-xl border border-[#eee] bg-white p-4 transition-colors hover:border-[#ccc]"
+      className="block rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-4 transition-colors hover:border-[var(--border-muted)]"
     >
       <div className="flex items-start justify-between gap-2">
-        <div className="flex-1 text-sm font-medium leading-snug text-[#1a1a1a]">
+        <div className="flex-1 text-sm font-medium leading-snug text-[var(--text-primary)]">
           {prediction.question}
         </div>
-        <div className="whitespace-nowrap rounded-lg bg-[#f3f2ed] px-[10px] py-1 text-lg font-medium text-[#888]">
+        <div className="whitespace-nowrap rounded-lg bg-[var(--bg-page)] px-[10px] py-1 text-lg font-medium text-[var(--text-muted)]">
           {formatPercent(probability)}
         </div>
       </div>
@@ -32,18 +32,18 @@ export function ResolvedPredictionCard({
         <div
           className={`flex items-center gap-1 rounded-full px-2 py-[2px] text-[11px] ${
             wellCalibrated
-              ? "bg-[#E1F5EE] text-[#0F6E56]"
-              : "bg-[#FAECE7] text-[#993C1D]"
+              ? "bg-[var(--positive-soft)] text-[var(--positive-text)]"
+              : "bg-[var(--negative-soft)] text-[var(--negative-text)]"
           }`}
         >
           {happened ? <IconCheck size={12} /> : <IconX size={12} />}
           {happened ? "Happened" : "Didn't happen"}
         </div>
-        <div className="rounded-full bg-[#f3f2ed] px-2 py-[2px] text-[11px] text-[#888]">
+        <div className="rounded-full bg-[var(--bg-page)] px-2 py-[2px] text-[11px] text-[var(--text-muted)]">
           {CATEGORY_LABELS[prediction.category]}
         </div>
         {prediction.resolvedAt && (
-          <div className="text-[11px] text-[#888]">
+          <div className="text-[11px] text-[var(--text-muted)]">
             {formatDate(prediction.resolvedAt)}
           </div>
         )}

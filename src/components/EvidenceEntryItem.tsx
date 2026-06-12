@@ -68,35 +68,35 @@ export function EvidenceEntryItem({
         <div
           className={`mt-[5px] h-2 w-2 flex-shrink-0 rounded-full ${
             delta === 0
-              ? "bg-[#ccc]"
+              ? "bg-[var(--border-muted)]"
               : isUp
-                ? "bg-[#1D9E75]"
-                : "bg-[#D85A30]"
+                ? "bg-[var(--positive)]"
+                : "bg-[var(--negative)]"
           }`}
         />
         <div className="flex-1">
           <div className="flex items-start justify-between gap-2">
-            <div className="text-sm leading-snug text-[#1a1a1a]">
+            <div className="text-sm leading-snug text-[var(--text-primary)]">
               {entry.description}
             </div>
             {canEdit && (
               <button
                 onClick={() => setOpen(true)}
-                className="mt-[2px] flex-shrink-0 text-[#888] hover:text-[#185FA5]"
+                className="mt-[2px] flex-shrink-0 text-[var(--text-muted)] hover:text-[var(--accent)]"
                 aria-label="Edit evidence"
               >
                 <IconPencil size={13} />
               </button>
             )}
           </div>
-          <div className="mt-[2px] text-[11px] text-[#888]">
+          <div className="mt-[2px] text-[11px] text-[var(--text-muted)]">
             {formatDate(entry.createdAt)} · {STRENGTH_LABELS[entry.strength]}{" "}
             {DIRECTION_LABELS[entry.direction]}
           </div>
           {delta !== 0 && (
             <div
               className={`mt-[2px] text-xs font-medium ${
-                isUp ? "text-[#0F6E56]" : "text-[#993C1D]"
+                isUp ? "text-[var(--positive-text)]" : "text-[var(--negative-text)]"
               }`}
             >
               {formatSignedPercent(delta)}
@@ -113,14 +113,14 @@ export function EvidenceEntryItem({
         await editAction(formData);
         setOpen(false);
       }}
-      className="mb-3 flex flex-col gap-3 rounded-xl border border-[#eee] p-3"
+      className="mb-3 flex flex-col gap-3 rounded-xl border border-[var(--border)] p-3"
     >
       <input type="hidden" name="evidenceId" value={entry.id} />
       <input type="hidden" name="predictionId" value={predictionId} />
       <input type="hidden" name="isLatest" value={isLatest ? "true" : "false"} />
 
       <div>
-        <label className="mb-1 block text-xs text-[#888]">
+        <label className="mb-1 block text-xs text-[var(--text-muted)]">
           What happened?
         </label>
         <textarea
@@ -128,19 +128,19 @@ export function EvidenceEntryItem({
           required
           rows={2}
           defaultValue={entry.description}
-          className="w-full resize-none rounded-lg border border-[#ddd] bg-white px-3 py-2 text-sm text-[#1a1a1a]"
+          className="w-full resize-none rounded-lg border border-[var(--border-strong)] bg-[var(--bg-surface)] px-3 py-2 text-sm text-[var(--text-primary)]"
         />
       </div>
 
       {isLatest && (
         <>
           <div>
-            <label className="mb-1 block text-xs text-[#888]">Direction</label>
+            <label className="mb-1 block text-xs text-[var(--text-muted)]">Direction</label>
             <div className="flex gap-2">
               {DIRECTIONS.map(({ value, label }) => (
                 <label
                   key={value}
-                  className="flex flex-1 items-center justify-center gap-1 rounded-md border border-[#ddd] p-[6px] text-[12px] text-[#555] has-[:checked]:border-[#b3cfe8] has-[:checked]:bg-[#E6F1FB] has-[:checked]:text-[#185FA5]"
+                  className="flex flex-1 items-center justify-center gap-1 rounded-md border border-[var(--border-strong)] p-[6px] text-[12px] text-[var(--text-secondary)] has-[:checked]:border-[var(--accent-border)] has-[:checked]:bg-[var(--accent-soft)] has-[:checked]:text-[var(--accent)]"
                 >
                   <input
                     type="radio"
@@ -156,12 +156,12 @@ export function EvidenceEntryItem({
           </div>
 
           <div>
-            <label className="mb-1 block text-xs text-[#888]">Strength</label>
+            <label className="mb-1 block text-xs text-[var(--text-muted)]">Strength</label>
             <div className="flex gap-2">
               {STRENGTHS.map(({ value, label }) => (
                 <label
                   key={value}
-                  className="flex flex-1 items-center justify-center gap-1 rounded-md border border-[#ddd] p-[6px] text-[12px] text-[#555] has-[:checked]:border-[#b3cfe8] has-[:checked]:bg-[#E6F1FB] has-[:checked]:text-[#185FA5]"
+                  className="flex flex-1 items-center justify-center gap-1 rounded-md border border-[var(--border-strong)] p-[6px] text-[12px] text-[var(--text-secondary)] has-[:checked]:border-[var(--accent-border)] has-[:checked]:bg-[var(--accent-soft)] has-[:checked]:text-[var(--accent)]"
                 >
                   <input
                     type="radio"
@@ -179,7 +179,7 @@ export function EvidenceEntryItem({
       )}
 
       {(editState.error || deleteState.error) && (
-        <div className="text-xs text-[#993C1D]">
+        <div className="text-xs text-[var(--negative-text)]">
           {editState.error ?? deleteState.error}
         </div>
       )}
@@ -188,7 +188,7 @@ export function EvidenceEntryItem({
         <button
           type="button"
           onClick={() => setOpen(false)}
-          className="flex-1 rounded-lg border border-[#ddd] p-[10px] text-sm text-[#666]"
+          className="flex-1 rounded-lg border border-[var(--border-strong)] p-[10px] text-sm text-[var(--text-secondary)]"
         >
           Cancel
         </button>
@@ -203,7 +203,7 @@ export function EvidenceEntryItem({
               await deleteAction(formData);
               setOpen(false);
             }}
-            className="flex items-center justify-center gap-1 rounded-lg border border-[#ddd] p-[10px] text-sm text-[#993C1D] disabled:opacity-60"
+            className="flex items-center justify-center gap-1 rounded-lg border border-[var(--border-strong)] p-[10px] text-sm text-[var(--negative-text)] disabled:opacity-60"
           >
             <IconTrash size={14} />
             {deletePending ? "Deleting..." : "Delete"}
@@ -212,7 +212,7 @@ export function EvidenceEntryItem({
         <button
           type="submit"
           disabled={editPending}
-          className="flex-1 rounded-lg bg-[#185FA5] p-[10px] text-sm font-medium text-white disabled:opacity-60"
+          className="flex-1 rounded-lg bg-[var(--accent)] p-[10px] text-sm font-medium text-[var(--accent-contrast)] disabled:opacity-60"
         >
           {editPending ? "Saving..." : "Save"}
         </button>

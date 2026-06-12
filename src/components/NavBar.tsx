@@ -20,7 +20,7 @@ export function NavBar() {
   const pathname = usePathname();
 
   return (
-    <div className="flex border-t border-[#eee] bg-white">
+    <div className="flex border-t border-[var(--border)] bg-[var(--bg-surface)]">
       {ITEMS.map(({ href, label, icon: Icon }) => {
         const active = pathname === href;
         return (
@@ -28,7 +28,7 @@ export function NavBar() {
             key={href}
             href={href}
             className={`flex flex-1 flex-col items-center gap-[3px] py-[10px] text-[10px] ${
-              active ? "text-[#185FA5]" : "text-[#888]"
+              active ? "text-[var(--accent)]" : "text-[var(--text-muted)]"
             }`}
           >
             <Icon size={20} stroke={1.75} />

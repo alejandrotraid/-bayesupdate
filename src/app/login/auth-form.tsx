@@ -23,8 +23,8 @@ export function AuthForm() {
   return (
     <div className="flex flex-1 flex-col items-center justify-center p-6">
       <div className="mb-6 text-center">
-        <div className="text-lg font-medium text-[#1a1a1a]">BayesUpdate</div>
-        <div className="mt-1 text-xs text-[#888]">
+        <div className="text-lg font-medium text-[var(--text-primary)]">BayesUpdate</div>
+        <div className="mt-1 text-xs text-[var(--text-muted)]">
           Track your beliefs and update them with evidence.
         </div>
       </div>
@@ -35,8 +35,8 @@ export function AuthForm() {
           onClick={() => setMode("signin")}
           className={`rounded-full border px-4 py-[6px] text-[13px] ${
             mode === "signin"
-              ? "border-transparent bg-[#E6F1FB] text-[#185FA5]"
-              : "border-[#ddd] bg-white text-[#666]"
+              ? "border-transparent bg-[var(--accent-soft)] text-[var(--accent)]"
+              : "border-[var(--border-strong)] bg-[var(--bg-surface)] text-[var(--text-secondary)]"
           }`}
         >
           Sign in
@@ -46,8 +46,8 @@ export function AuthForm() {
           onClick={() => setMode("signup")}
           className={`rounded-full border px-4 py-[6px] text-[13px] ${
             mode === "signup"
-              ? "border-transparent bg-[#E6F1FB] text-[#185FA5]"
-              : "border-[#ddd] bg-white text-[#666]"
+              ? "border-transparent bg-[var(--accent-soft)] text-[var(--accent)]"
+              : "border-[var(--border-strong)] bg-[var(--bg-surface)] text-[var(--text-secondary)]"
           }`}
         >
           Sign up
@@ -56,33 +56,33 @@ export function AuthForm() {
 
       <form action={action} className="flex w-full max-w-xs flex-col gap-3">
         <div>
-          <label className="mb-1 block text-xs text-[#888]">Email</label>
+          <label className="mb-1 block text-xs text-[var(--text-muted)]">Email</label>
           <input
             type="email"
             name="email"
             required
-            className="w-full rounded-lg border border-[#ddd] bg-white px-3 py-2 text-sm text-[#1a1a1a]"
+            className="w-full rounded-lg border border-[var(--border-strong)] bg-[var(--bg-surface)] px-3 py-2 text-sm text-[var(--text-primary)]"
           />
         </div>
         <div>
-          <label className="mb-1 block text-xs text-[#888]">Password</label>
+          <label className="mb-1 block text-xs text-[var(--text-muted)]">Password</label>
           <input
             type="password"
             name="password"
             required
             minLength={6}
-            className="w-full rounded-lg border border-[#ddd] bg-white px-3 py-2 text-sm text-[#1a1a1a]"
+            className="w-full rounded-lg border border-[var(--border-strong)] bg-[var(--bg-surface)] px-3 py-2 text-sm text-[var(--text-primary)]"
           />
         </div>
 
         {state.error && (
-          <div className="text-xs text-[#993C1D]">{state.error}</div>
+          <div className="text-xs text-[var(--negative-text)]">{state.error}</div>
         )}
 
         <button
           type="submit"
           disabled={pending}
-          className="mt-1 rounded-lg bg-[#185FA5] px-3 py-2 text-sm font-medium text-white disabled:opacity-60"
+          className="mt-1 rounded-lg bg-[var(--accent)] px-3 py-2 text-sm font-medium text-[var(--accent-contrast)] disabled:opacity-60"
         >
           {pending
             ? "Please wait..."
